@@ -15,7 +15,6 @@ dependencies:
   - babel=2.9.1=pyhd3eb1b0_0
   - backcall=0.2.0=pyhd3eb1b0_0
   - beautifulsoup4=4.11.1=py310hecd8cb5_0
-  - black=19.10b0=py_0
   - blas=1.0=mkl
   - bleach=4.1.0=pyhd3eb1b0_0
   - bottleneck=1.3.5=py310h4e76f89_0
@@ -26,7 +25,6 @@ dependencies:
   - cffi=1.15.0=py310hc55c11b_1
   - cfgv=3.3.1=pyhd8ed1ab_0
   - charset-normalizer=2.0.4=pyhd3eb1b0_0
-  - click=8.0.4=py310hecd8cb5_0
   - colorama=0.4.5=py310hecd8cb5_0
   - commonmark=0.9.1=pyhd3eb1b0_0
   - coverage=6.3.2=py310hca72f7f_0
@@ -75,7 +73,6 @@ dependencies:
   - mkl-service=2.4.0=py310hca72f7f_0
   - mkl_fft=1.3.1=py310hf879493_0
   - mkl_random=1.2.2=py310hc081a56_0
-  - mypy_extensions=0.4.3=py310hecd8cb5_1
   - nbclassic=0.3.5=pyhd3eb1b0_0
   - nbclient=0.5.13=py310hecd8cb5_0
   - nbconvert=6.4.4=py310hecd8cb5_0
@@ -94,10 +91,9 @@ dependencies:
   - pandas=1.4.2=py310he9d5cce_0
   - pandocfilters=1.5.0=pyhd3eb1b0_0
   - parso=0.8.3=pyhd3eb1b0_0
-  - pathspec=0.7.0=py_0
   - pexpect=4.8.0=pyhd3eb1b0_3
   - pickleshare=0.7.5=pyhd3eb1b0_1003
-  - pip=21.2.4=py310hecd8cb5_0
+  - pip=22.1.2=py310hecd8cb5_0
   - platformdirs=2.4.0=pyhd3eb1b0_0
   - pluggy=1.0.0=py310hecd8cb5_1
   - pre-commit=2.19.0=py310h2ec42d9_0
@@ -124,7 +120,6 @@ dependencies:
   - pyzmq=22.3.0=py310he9d5cce_2
   - readline=8.1.2=hca72f7f_1
   - recommonmark=0.6.0=pyhd3eb1b0_0
-  - regex=2022.3.15=py310hca72f7f_0
   - requests=2.28.0=py310hecd8cb5_0
   - send2trash=1.8.0=pyhd3eb1b0_1
   - setuptools=61.2.0=py310hecd8cb5_0
@@ -150,7 +145,6 @@ dependencies:
   - tornado=6.1=py310hca72f7f_0
   - tox=3.25.1=pyhd8ed1ab_0
   - traitlets=5.1.1=pyhd3eb1b0_0
-  - typed-ast=1.4.3=py310hca72f7f_1
   - typing-extensions=4.1.1=hd3eb1b0_0
   - typing_extensions=4.1.1=pyh06a4308_0
   - tzdata=2022a=hda174b7_0
@@ -168,5 +162,10 @@ dependencies:
   - zipp=3.8.0=py310hecd8cb5_0
   - zlib=1.2.12=h4dc903c_2
   - pip:
+    - black==22.6.0
+    - click==8.1.3
+    - mypy-extensions==0.4.3
+    - pathspec==0.9.0
     - pyyaml==6.0
+    - tokenize-rt==4.2.1
 prefix: /Users/clementverrier/miniconda3/envs/carsales

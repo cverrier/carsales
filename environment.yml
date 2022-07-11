@@ -10,6 +10,7 @@ dependencies:
   - pandas
   - pip:
      - -e .  # install git checkout of carsales in editable mode
+     - 'black[jupyter]'
 
   # DEVELOPMENT ONLY PACKAGES (could also be kept in a separate environment file)
   - jupyterlab
@@ -22,4 +23,3 @@ dependencies:
   - sphinx
   - recommonmark
   - pylint
-  - black
