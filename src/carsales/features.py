@@ -44,3 +44,20 @@ def remove_prices(
     prices = prices[mask]
 
     return prices
+
+
+def create_date_distrib(dates: pd.Series) -> pd.Series:
+    """Creates a normalized statistical distribution of `dates`.
+
+    Args:
+        dates (pd.Series):
+            The dates to be used for the statistical distribution.
+
+    Returns:
+        pd.Series:
+            The normalized statistical distribution from `dates`.
+    """
+    dates = pd.to_datetime(dates)
+    distrib = dates.dt.date.value_counts(normalize=True).sort_index()
+   
+    return distrib
