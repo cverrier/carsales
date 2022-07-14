@@ -26,6 +26,26 @@ def remove_chars(data: pd.Series, chars: list[str]) -> pd.Series:
     return data
 
 
+def replace_chars(data: pd.Series, mapping: dict[str, str]) -> pd.Series:
+    """Replaces characters in a series with other ones using a mapping.
+
+    Args:
+        data (pd.Series):
+            The listings dataset.
+        mapping (dict[str, str]):
+            Dictionary that contains all the information to replace
+            characters. The keys are the words that have to be replaced,
+            and the values correspond to new strings.
+
+    Returns:
+        pd.Series:
+            The new feature with replaced words.
+    """
+    data = data.replace(mapping)
+
+    return data
+
+
 def remove_prices(prices: pd.Series,
     price_min: float,
     price_max: float) -> pd.Series:
