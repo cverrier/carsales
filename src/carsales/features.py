@@ -1,17 +1,17 @@
 """Functions used to clean and preprocess dataset.
 """
-from typing import Optional
+from typing import Optional, Union
 
 import pandas as pd
 
 
-def remove_chars(data: pd.Series, chars: list[str]) -> pd.Series:
+def remove_chars(data: Union[pd.Series, pd.DataFrame],
+    chars: list[str]) -> pd.Series:
     """Removes characters specified in `chars` in each entry of `data`.
 
     Args:
-        data (pd.Series):
-            The data where specific characters should be
-            deleted.
+        data (Union[pd.Series, pd.DataFrame]):
+            The data where specific characters should be deleted.
         chars (list[str]):
             The characters that should be removed in each entry of
             `data`.
