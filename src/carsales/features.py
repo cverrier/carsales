@@ -1,5 +1,7 @@
 """Functions used to clean and preprocess dataset.
 """
+from typing import Optional
+
 import pandas as pd
 
 
@@ -24,8 +26,9 @@ def remove_chars(data: pd.Series, chars: list[str]) -> pd.Series:
     return data
 
 
-def remove_prices(
-    prices: pd.Series, price_min: float, price_max: float) -> pd.Series:
+def remove_prices(prices: pd.Series,
+    price_min: float,
+    price_max: float) -> pd.Series:
     """Removes unrealistic prices. This is specified by range of values.
 
     Args:
@@ -34,7 +37,7 @@ def remove_prices(
         price_min (float):
             Lower price bound.
         price_max (float):
-            Higher price bound.
+            Upper price bound.
 
     Returns:
         pd.Series:
@@ -59,5 +62,39 @@ def create_date_distrib(dates: pd.Series) -> pd.Series:
     """
     dates = pd.to_datetime(dates)
     distrib = dates.dt.date.value_counts(normalize=True).sort_index()
-   
+
     return distrib
+
+
+def remove_registrations(
+    autos: pd.DataFrame,
+    min_acceptable_year: int,
+    max_acceptable_year: int,
+    inplace: Optional[bool] = False,
+) -> Optional[pd.DataFrame]:
+    """Removes listings which are associated to an unrealistic
+    registration year. See the project notebook for more detail.
+
+    Args:
+        autos (pd.DataFrame):
+            The listings dataset.
+        min_acceptable_year (int):
+            The lower bound year.
+        max_acceptable_year (int):
+            The upper bound year.
+        inplace (Optional[bool], optional):
+            Whether or not to operate in-place. Defaults to False.
+
+    Returns:
+        Optional[pd.DataFrame]:
+            If `inplace` is set to `True`, the function directly
+            operates on the existing `autos` dataset and does not return
+            any dataframe. If `inplace` is set to `False`, a new
+            dataframe is returned.
+    """
+    mask = ~autos["registration_year"].between(min_acceptable_year,
+                                               max_acceptable_year)
+    if inplace:
+        autos.drop(autos[mask].index, inplace=inplace)
+    else:
+        return autos.drop(autos[mask].index, inplace=inplace)
