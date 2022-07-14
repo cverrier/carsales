@@ -98,3 +98,27 @@ def remove_registrations(
         autos.drop(autos[mask].index, inplace=inplace)
     else:
         return autos.drop(autos[mask].index, inplace=inplace)
+
+
+def compute_brand_avg_prices(
+    autos: pd.DataFrame, brands: pd.Index) -> dict[str, float]:
+    """Computes average price for each brand in `brands`.
+
+    Args:
+        autos (pd.DataFrame):
+            The listings dataset.
+        brands (pd.Index):
+            The car brands we want to compute the average price.
+
+    Returns:
+        dict[str, float]:
+            Average prices for each brand.
+    """
+    avg_prices = {}
+
+    for brand in brands:
+        avg_prices[brand] = round(
+            autos.loc[autos["brand"] == brand, "price"].mean(), 2
+        )
+
+    return avg_prices
