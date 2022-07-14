@@ -100,25 +100,27 @@ def remove_registrations(
         return autos.drop(autos[mask].index, inplace=inplace)
 
 
-def compute_brand_avg_prices(
-    autos: pd.DataFrame, brands: pd.Index) -> dict[str, float]:
-    """Computes average price for each brand in `brands`.
+def compute_brands_avg_feature(
+    autos: pd.DataFrame, brands: pd.Index, feature: str) -> dict[str, float]:
+    """Computes an average `feature` for each brand in `brands`.
 
     Args:
         autos (pd.DataFrame):
             The listings dataset.
         brands (pd.Index):
             The car brands we want to compute the average price.
+        feature (str):
+            The feature name whose mean we want to compute.
 
     Returns:
         dict[str, float]:
             Average prices for each brand.
     """
-    avg_prices = {}
+    avg_feature = {}
 
     for brand in brands:
-        avg_prices[brand] = round(
-            autos.loc[autos["brand"] == brand, "price"].mean(), 2
+        avg_feature[brand] = round(
+            autos.loc[autos["brand"] == brand, feature].mean(), 2
         )
 
-    return avg_prices
+    return avg_feature
